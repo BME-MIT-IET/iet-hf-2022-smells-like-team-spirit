@@ -25,7 +25,7 @@ func generateInputs() {
 	//inputs = append(inputs, rand.Perm(100000000)) // generating the numbers take some time, use this with caution
 }
 
-func BenchmarkBubbleSort(b *testing.B) {
+func BenchmarkCountingSort(b *testing.B) {
 	generateInputs()
 	b.ResetTimer()
 	for i := 0; i < len(inputs); i++ {

@@ -56,7 +56,7 @@ func Max(x, y int) int {
 	return y
 }
 
-func BenchmarkBubbleSort(b *testing.B) {
+func BenchmarkBucketSort(b *testing.B) {
 	generateInputs()
 	b.ResetTimer()
 	for i := 0; i < len(inputs); i++ {
