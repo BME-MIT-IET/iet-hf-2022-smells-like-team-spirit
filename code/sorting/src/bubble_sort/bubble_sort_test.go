@@ -19,7 +19,7 @@ func generateInputs() {
 	inputs = append(inputs, rand.Perm(1000))
 	inputs = append(inputs, rand.Perm(10000))
 	inputs = append(inputs, rand.Perm(100000))
-	inputs = append(inputs, rand.Perm(250000))
+	//inputs = append(inputs, rand.Perm(250000)) // took too much time
 	//inputs = append(inputs, rand.Perm(1000000)) // benchmark timed out, don't use this!
 }
 
@@ -27,7 +27,7 @@ func BenchmarkBubbleSort(b *testing.B) {
 	generateInputs()
 	b.ResetTimer()
 	for i := 0; i < len(inputs); i++ {
-		b.Run(fmt.Sprintf("input_size_%d", len(inputs[i])), func(b *testing.B) {
+		b.Run(fmt.Sprintf("input_size=%d;", len(inputs[i])), func(b *testing.B) {
 			for j := 0; j < b.N; j++ {
 				bubbleSort(inputs[i])
 			}

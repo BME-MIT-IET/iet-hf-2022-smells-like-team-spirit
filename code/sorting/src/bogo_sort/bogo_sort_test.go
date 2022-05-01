@@ -16,7 +16,7 @@ var inputs = [][]int{
 
 func BenchmarkBogoSort(b *testing.B) {
 	for i := 0; i < len(inputs); i++ {
-		b.Run(fmt.Sprintf("input_size_%d", len(inputs[i])), func(b *testing.B) {
+		b.Run(fmt.Sprintf("input_size=%d;", len(inputs[i])), func(b *testing.B) {
 			for j := 0; j < b.N; j++ {
 				bogoSort(inputs[i])
 			}
