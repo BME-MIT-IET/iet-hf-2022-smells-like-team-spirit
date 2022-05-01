@@ -1,11 +1,12 @@
 #!/bin/sh
 
 dir="$PWD"
-packages="$(grep -Ril "package main" . | grep -E ".*\.go" | xargs dirname | grep -E "$FILTER" | sort | uniq)"
+packages="$(grep -Ril "package main" . | grep -E ".*\.go" | xargs dirname | grep -P "$FILTER" | sort | uniq)"
 
 fail="false"
 
 for package in $packages; do
+    echo "$package"
     sh -c "cd $package; $@"
     ret="$?"
     if [ "$ret" != "0" ]; then

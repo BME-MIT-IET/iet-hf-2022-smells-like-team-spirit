@@ -1,7 +1,7 @@
 name: Run automated tests
 on: [push]
 env:
-  FILTER: sort
+  FILTER: '^.\/code\/sorting\/src\/((?!(heap|shell)).)*$'
 jobs: 
   tests:
     name: Tests
