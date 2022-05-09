@@ -28,7 +28,10 @@ jobs:
         run: scripts/all_go_mains.sh 'go build -v *.go'
       
       - name: Test all go programs in repo with coverage
-        run: scripts/all_go_mains.sh 'go test -cover -v *.go'
+        run: scripts/all_go_mains.sh 'go test -coverprofile=profile.out -covermode=atomic -v *.go'
+
+      - name: Upload coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash)
 
       - name: Test all go programs in repo with race detector
         run: scripts/all_go_mains.sh 'go test -race *.go'
