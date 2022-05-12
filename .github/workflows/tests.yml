@@ -1,0 +1,42 @@
+name: Run automated tests
+on: [push]
+env:
+  FILTER: '^.\/code\/sorting\/src\/((?!(heap|shell)).)*$'
+jobs: 
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+      
+      - name: Cache build files
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - name: Build all go programs in repo
+        run: scripts/all_go_mains.sh 'go build -v *.go'
+      
+      - name: Test all go programs in repo with coverage
+        run: scripts/all_go_mains.sh 'go test -coverprofile=profile.out -covermode=atomic -v *.go'
+
+      - name: Upload coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash)
+
+      - name: Test all go programs in repo with race detector
+        run: scripts/all_go_mains.sh 'go test -race *.go'
+
+      - name: Benchmark all go programs in repo
+        run: scripts/all_go_mains.sh 'go test -bench=. *.go'
+        
+
