@@ -20,7 +20,7 @@ func generateInputs() {
 	inputs = append(inputs, rand.Perm(10000))
 	inputs = append(inputs, rand.Perm(100000))
 	inputs = append(inputs, rand.Perm(250000))
-	inputs = append(inputs, rand.Perm(1000000)) // benchmark timed out, don't use this!
+	//inputs = append(inputs, rand.Perm(1000000)) // benchmark timed out, don't use this!
 	//inputs = append(inputs, rand.Perm(10000000)) // generating the numbers take some time, use this with caution // haven't used this, but I'm sure it would take too much time for the benchmark
 	//inputs = append(inputs, rand.Perm(100000000)) // generating the numbers take some time, use this with caution
 }
