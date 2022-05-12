@@ -12,6 +12,10 @@ import "fmt"
  */
 
 func stoogeSort(data []int, start, end int) {
+	if start >= end {
+		return
+	}
+
 	if data[start] > data[end] {
 		data[start], data[end] = data[end], data[start]
 	}

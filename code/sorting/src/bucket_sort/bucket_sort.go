@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 )
@@ -20,6 +21,10 @@ func insertionSort(array []float64) {
 }
 
 func bucketSort(array []float64, bucketSize int) []float64 {
+	if len(array) == 0 {
+		return array
+	}
+
 	var max, min float64
 	for _, n := range array {
 		if n < min {
@@ -36,7 +41,12 @@ func bucketSort(array []float64, bucketSize int) []float64 {
 	}
 
 	for _, n := range array {
-		idx := int(n-min) / bucketSize
+		var idx int
+		if math.IsNaN(n) {
+			idx = 0
+		} else {
+			idx = int(n-min) / bucketSize
+		}
 		buckets[idx] = append(buckets[idx], n)
 	}
 
