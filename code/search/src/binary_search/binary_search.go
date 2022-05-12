@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 import "sort"
+
 // Part of Cosmos by OpenGenus Foundation
 func binarySearch(data []int, value int) int {
 	startIndex := 0
@@ -11,9 +12,9 @@ func binarySearch(data []int, value int) int {
 		midIndex := (startIndex + endIndex) / 2
 		mid := data[midIndex]
 
-		if mid < value {
+		if mid > value {
 			endIndex = midIndex - 1
-		} else if mid > value {
+		} else if mid < value {
 			startIndex = midIndex + 1
 		} else {
 			return midIndex
