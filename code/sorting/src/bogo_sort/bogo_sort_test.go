@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -24,5 +25,21 @@ func TestBogoSort(t *testing.T) {
 				t.Errorf("%v != %v", sorted, tt.output)
 			}
 		}
+	}
+}
+
+var inputs = [][]int{
+	{1, 5, 8, 2, 6, 9},
+	{1, 5, 8, 2, 6, 10, 1, 5, 8, 2, 6, 10},
+	{1, 5, 8, 2, 6, 12, 1, 5, 8, 2, 6, 10, 1},
+}
+
+func BenchmarkBogoSort(b *testing.B) {
+	for i := 0; i < len(inputs); i++ {
+		b.Run(fmt.Sprintf("input_size=%d;", len(inputs[i])), func(b *testing.B) {
+			for j := 0; j < b.N; j++ {
+				bogoSort(inputs[i])
+			}
+		})
 	}
 }

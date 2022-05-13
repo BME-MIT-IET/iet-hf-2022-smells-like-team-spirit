@@ -1,33 +1,12 @@
+/* Part of Cosmos by OpenGenus Foundation */
 package main
 
 import (
 	"fmt"
 	"math/rand"
 	"testing"
-	"time")
-
-func TestCycleSort(t *testing.T) {
-	tests := []struct {
-		input  []int
-		output []int
-	}{
-		{[]int{1, 2, 3, 4, 5}, []int{1, 2, 3, 4, 5}},
-		{[]int{5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5}},
-		{[]int{5, 4, 4, 2, 1}, []int{1, 2, 4, 4, 5}},
-		{[]int{3, 2, 1, 0, -1}, []int{-1, 0, 1, 2, 3}},
-		{[]int{}, []int{}},
-	}
-
-	for _, tt := range tests {
-		CycleSort(&tt.input)
-
-		for i := 0; i < len(tt.input); i++ {
-			if tt.input[i] != tt.output[i] {
-				t.Errorf("%v != %v", tt.input, tt.output)
-			}
-		}
-	}
-}
+	"time"
+)
 
 var inputs = [][]int{
 	{1, 6, 2, 4, 9, 0, 5, 3, 7, 8},
@@ -39,20 +18,20 @@ func generateInputs() {
 	rand.Seed(time.Now().Unix())
 	inputs = append(inputs, rand.Perm(1000))
 	inputs = append(inputs, rand.Perm(10000))
-	//inputs = append(inputs, rand.Perm(100000)) // takes almost half a minute on my PC
-	//inputs = append(inputs, rand.Perm(250000)) // takes more than two minutes on my PC
+	inputs = append(inputs, rand.Perm(100000))
+	inputs = append(inputs, rand.Perm(250000))
 	//inputs = append(inputs, rand.Perm(1000000)) // benchmark timed out, don't use this!
 	//inputs = append(inputs, rand.Perm(10000000)) // generating the numbers take some time, use this with caution // haven't used this, but I'm sure it would take too much time for the benchmark
 	//inputs = append(inputs, rand.Perm(100000000)) // generating the numbers take some time, use this with caution
 }
 
-func BenchmarkCycleSort(b *testing.B) {
+func BenchmarkHeapSort(b *testing.B) {
 	generateInputs()
 	b.ResetTimer()
 	for i := 0; i < len(inputs); i++ {
 		b.Run(fmt.Sprintf("input_size=%d;", len(inputs[i])), func(b *testing.B) {
 			for j := 0; j < b.N; j++ {
-				CycleSort(&inputs[i])
+				HeapSort(inputs[i])
 			}
 		})
 	}
