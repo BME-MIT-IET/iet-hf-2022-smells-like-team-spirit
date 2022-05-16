@@ -8,6 +8,29 @@ import (
 	"time"
 )
 
+func TestHeapSort(t *testing.T) {
+	tests := []struct {
+		input  []int
+		output []int
+	}{
+		{[]int{1, 2, 3, 4, 5}, []int{1, 2, 3, 4, 5}},
+		{[]int{5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5}},
+		{[]int{5, 4, 4, 2, 1}, []int{1, 2, 4, 4, 5}},
+		{[]int{3, 2, 1, 0, -1}, []int{-1, 0, 1, 2, 3}},
+		{[]int{}, []int{}},
+	}
+
+	for _, tt := range tests {
+		HeapSort(tt.input)
+
+		for i := 0; i < len(tt.input); i++ {
+			if tt.input[i] != tt.output[i] {
+				t.Errorf("%v != %v", tt.input, tt.output)
+			}
+		}
+	}
+}
+
 var inputs = [][]int{
 	{1, 6, 2, 4, 9, 0, 5, 3, 7, 8},
 	{19, 4, 14, 9, 10, 16, 3, 2, 15, 1, 13, 7, 20, 18, 17, 11, 5, 12, 6},
