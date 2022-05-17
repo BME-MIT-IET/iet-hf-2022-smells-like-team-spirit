@@ -29,6 +29,7 @@ Ezek szerint az algoritmus növekvőbe rendezett int tömböket vár bemenetnek.
 Növekvő sorrendbe rendezett csupa negatív intek tömbjénél is minden a legnagyobb rendben működik. 
 Ezek szerint az algoritmusnak nem okoz gondot  anegatív számok kezelése. 
 Úgy látszik csak az számít, hogy növekvő sorrendben legyenek az elemek.
+
 ![teszt5](teszt5.png)
 
 # 6. észrevétel
