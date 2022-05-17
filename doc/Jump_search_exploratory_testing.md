@@ -22,6 +22,7 @@ Csökkenő sorrendbe rendezett tömb esetében egyáltalán nem működik az alg
 # 4. észrevétel
 Növekvő sorrendbe rendezett tömb esetében minden teljesen jól működik.
 Ezek szerint az algoritmus növekvőbe rendezett int tömböket vár bemenetnek.
+
 ![teszt4](teszt4.png)
 
 # 5. észrevétel
