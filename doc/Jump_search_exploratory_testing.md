@@ -45,8 +45,8 @@ mindig a lehető legkisebb indexen lévő keresett elem.
 
 # 8. észrevétel
 Üres tömb esetén is teljesen jól működik az algoritmus.
+
 ![teszt8](teszt8.png)
-1 elemű tömb esetén is működik az algoritmus.
 
 # 9. észrevétel
 1 elemű tömb esetén is működik az algoritmus.
