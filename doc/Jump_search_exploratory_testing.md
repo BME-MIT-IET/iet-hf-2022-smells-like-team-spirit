@@ -50,6 +50,7 @@ mindig a lehető legkisebb indexen lévő keresett elem.
 
 # 9. észrevétel
 1 elemű tömb esetén is működik az algoritmus.
+
 ![teszt9](teszt9.png)
 
 # Összefoglalás
