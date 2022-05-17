@@ -16,6 +16,7 @@ Valószínűleg az algoritmus rendezett tömböt vár bemenetnek.
 
 # 3. észrevétel
 Csökkenő sorrendbe rendezett tömb esetében egyáltalán nem működik az algoritmus, nem találja meg egyik számot sem:
+
 ![teszt3](teszt3.png)
 
 # 4. észrevétel
