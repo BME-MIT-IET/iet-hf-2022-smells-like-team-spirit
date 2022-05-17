@@ -38,7 +38,7 @@ Csupa ugyan olyan értékekkel feltöltött tömb esetén a megtalált elem mind
 ![teszt6](teszt6.png)
 
 # 7. észrevétel
-Két különböző értékekkel feltöltött tömb esetén a megtalált elem(Ha az mindig a nagyobb szám) 
+Két különböző értékekkel feltöltött tömb esetén a megtalált elem (ha az mindig a nagyobb szám) 
 mindig a lehető legkisebb indexen lévő keresett elem.
 
 ![teszt7](teszt7.png)
