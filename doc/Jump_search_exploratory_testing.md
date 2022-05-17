@@ -34,6 +34,7 @@ Ezek szerint az algoritmusnak nem okoz gondot  anegatív számok kezelése.
 
 # 6. észrevétel
 Csupa ugyan olyan értékekkel feltöltött tömb esetén a megtalált elem mindig a 0-ás indexen lévő elem.
+
 ![teszt6](teszt6.png)
 
 # 7. észrevétel
